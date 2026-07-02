@@ -1,0 +1,16 @@
+{
+  "name": "fish-companion",
+  "version": "1.0.0",
+  "description": "Go to for fishing localized fishing information",
+  "main": "index.js",
+  "scripts": {
+    "test": "false"
+  },
+  "author": "vLeech",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.26.4",
+    "git": "^0.1.5",
+    "npm": "^11.18.0"
+  }
+}
