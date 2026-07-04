@@ -32,9 +32,9 @@ function buildFishingReport(context) {
         species: context.species,
         score: ranked[0]?.score ?? 0,
 
-        topLocations: scorer.getByType("location").slice(0, 3),
-        topLures: scorer.getByType("lure").slice(0, 3),
-        topColors: scorer.getByType("color").slice(0, 3),
+        location: scorer.getByType("location").slice(0, 3),
+        lure: scorer.getByType("lure").slice(0, 3),
+        color: scorer.getByType("color").slice(0, 3),
 
         fullRanked: ranked
     };

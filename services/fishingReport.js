@@ -3,13 +3,12 @@ const { getSolunarData } = require("./solunarService");
 const { getRecommendedColors } = require("../engine/recommendations/colors");
 const { getRecommendedLocations } = require("../engine/recommendations/locations");
 const { getRecommendedLures } = require("../engine/recommendations/lures");
-const { buildGlobalFishingScore } =
-  require("../engine/scoring/globalFishingScorer");
+const { buildGlobalFishingScore } = require("../engine/scoring/globalFishingScorer");
+const { buildFishingWindows } = require("../engine/windows");
 
 async function generateFishingReport(options = {}) {
     const latitude = options.latitude ?? 37.231196;
     const longitude = options.longitude ?? -80.611693;
-
     const weather = await getWeather(latitude, longitude);
     const solunar = getSolunarData(latitude, longitude, new Date());
 
@@ -20,17 +19,19 @@ async function generateFishingReport(options = {}) {
         waterbody: options.waterbody,
         clarity: options.clarity,
         cover: options.cover,
+
         weather,
         solunar
     };
+    const windows = buildFishingWindows(context);
+    const colors = getRecommendedColors(context);
+    const lures = getRecommendedLures(context);
+    const locations = getRecommendedLocations(context);
+    const scoreObj = buildGlobalFishingScore(context);
 
-    const scored = buildGlobalFishingScore(context, [
-        require("../engine/recommendations/lures").lureScoringModule,
-        require("../engine/recommendations/locations").locationScoringModule,
-        require("../engine/recommendations/colors").colorScoringModule
-    ]);
+    const score = scoreObj.score;
+    console.log(score)
 
-    const score = buildGlobalFishingScore(context);
 
     let recommendation = "";
 
@@ -45,30 +46,23 @@ async function generateFishingReport(options = {}) {
     }
 
     return {
-        location: { latitude, longitude },
+    location: { latitude, longitude },
 
-        species: options.species,
-        waterbody: options.waterbody,
-        clarity: options.clarity,
-        cover: options.cover,
+    species: options.species,
+    waterbody: options.waterbody,
+    clarity: options.clarity,
+    cover: options.cover,
+    weather,
+    solunar,
+    windows,
+    score,
+    lures,
+    colors,
+    locations,
+    recommendation,
 
-        weather,
-        solunar,
-
-        score,
-
-        colors: scored.colors,
-        lures: scored.lures,
-        locations: scored.locations,
-
-        recommendation,
-
-        summary: `Fishing conditions for ${options.species || "fish"} at a ${options.waterbody || "waterbody"}.`
-    };
+    summary: `Fishing conditions for ${options.species || "fish"} at a ${options.waterbody || "waterbody"}.`
+};
 }
-console.log({
-    colorsFn: typeof getRecommendedColors,
-    luresFn: typeof getRecommendedLures,
-    locFn: typeof getRecommendedLocations
-});
+
 module.exports = { generateFishingReport };

@@ -11,9 +11,9 @@ const { generateFishingReport } = require('./services/fishingReport');
 
         waterbody: "pond",
 
-        clarity: "clear",
+        clarity: "muddy",
 
-        cover: "grass"
+        cover: "rocky"
 
     });
 
