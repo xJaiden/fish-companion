@@ -1,0 +1,19 @@
+{
+    "pond": {
+        "locations": [
+            "Grass edges",
+            "Wind-blown banks",
+            "Docks",
+            "Laydowns"
+        ]
+    },
+
+    "river": {
+        "locations": [
+            "Current seams",
+            "Rock transitions",
+            "Eddies",
+            "Undercut banks"
+        ]
+    }
+}

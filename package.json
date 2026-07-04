@@ -9,8 +9,11 @@
   "author": "vLeech",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.18.1",
     "discord.js": "^14.26.4",
+    "dotenv": "^17.4.2",
     "git": "^0.1.5",
+    "lunarphase-js": "^2.0.3",
     "npm": "^11.18.0"
   }
 }

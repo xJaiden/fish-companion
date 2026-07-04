@@ -1,0 +1,31 @@
+{
+    "preferredTemp": {
+        "min": 60,
+        "max": 82
+    },
+
+    "preferredPressure": {
+        "low": 29.8,
+        "high": 30.3
+    },
+
+    "favoriteCover": [
+        "grass",
+        "wood",
+        "pads"
+    ],
+
+    "activeMonths": [
+        3,
+        4,
+        5,
+        6,
+        9,
+        10
+    ],
+
+    "spawnMonths": [
+        4,
+        5
+    ]
+}

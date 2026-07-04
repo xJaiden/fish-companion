@@ -1,0 +1,24 @@
+{
+    "crystal": [
+        "Green Pumpkin",
+        "Watermelon",
+        "Shad"
+    ],
+
+    "clear": [
+        "Green Pumpkin",
+        "Watermelon Red"
+    ],
+
+    "stained": [
+        "Junebug",
+        "Black Blue",
+        "White"
+    ],
+
+    "muddy": [
+        "Black Blue",
+        "Chartreuse",
+        "Firetiger"
+    ]
+}

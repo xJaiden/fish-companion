@@ -1,0 +1,25 @@
+{
+    "muddy": {
+        "pond": [
+            "Colorado Spinnerbait",
+            "Black/Blue Jig",
+            "Buzzbait",
+            "Frog"
+        ],
+
+        "river": [
+            "Squarebill",
+            "Spinnerbait",
+            "Chatterbait"
+        ]
+    },
+
+    "clear": {
+
+        "pond": [
+            "Texas Rig",
+            "Wacky Rig",
+            "Dropshot"
+        ]
+    }
+}
